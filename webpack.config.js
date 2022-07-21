@@ -20,7 +20,7 @@ console.log("BUILD MODE: ", modeOri, mode)
 
 // 1.2 webpack config
 let webpackConfig = {
-    mode: "none",
+    mode: "production",
     name: "arokaConfig",
     entry: {
         aroka: resolve("/src/main/vue/entry/main.js"),
@@ -34,8 +34,8 @@ let webpackConfig = {
         alias: {
             '@': resolve('src/main/vue'),
             '@aroka': resolve('src/main/vue/aroka'),
-            '@image': resolve('src/main/vue/asset/img'),
-            '@font': resolve('src/main/vue/asset/font'),
+            '@image': resolve('src/main/vue/assets/img'),
+            '@font': resolve('src/main/vue/assets/font'),
             '@styles': resolve('src/main/vue/styles'),
             '@config': resolve('src/main/vue/config/mode/config.' + mode.abbr + '.js'),
             '@const': resolve('src/main/vue/util/const.' + (mode.con || 'local') + '.js'),
@@ -52,11 +52,19 @@ let webpackConfig = {
                 use: 'babel-loader',
             },
             {
-                test: /\.scss$/,
+                test: /\.s[ac]ss$/i,
                 use: [
                     'vue-style-loader',
                     'css-loader',
-                    'sass-loader'
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            additionalData: `
+                                @import "@styles/_variables.scss";
+                                @import "@styles/_mixin.scss";
+                            `,
+                        },
+                    },
                 ]
             },
             {
@@ -76,18 +84,14 @@ let webpackConfig = {
             },
         ],
     },
-    plugins:
-        [
-            new VueLoaderPlugin(),
-            new HtmlWebpackPlugin(
-                {
-                    template: resolve('/src/main/vue/index.html'),
-                }
-            ),
-            new DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify('development'),
-            }),
-        ],
+    plugins: [
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin(
+            {
+                template: resolve('/src/main/vue/index.html'),
+            }
+        ),
+    ],
 }
 
 /** 2. Configuration */

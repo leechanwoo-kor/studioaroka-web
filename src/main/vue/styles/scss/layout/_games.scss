@@ -1,0 +1,408 @@
+/* Home Page */
+.home-page .hero {
+    background-color: #eb3945;
+    overflow: hidden;
+}
+
+.home-page .hero .inner-wrap {
+    display: flex;
+    align-items: center;
+    max-width: 2000px;
+    height: 75vh;
+    min-height: 800px;
+}
+
+.home-page .hero .hero-titles {
+    max-width: 75%;
+    position: absolute;
+    top: 45%;
+    left: 12.5%;
+    z-index: 100;
+}
+
+.home-page .hero h1 {
+    color: #fff;
+    font-family: 'Aroka-Black';
+    font-size: 145px;
+    line-height: 1em;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.home-page .hero h2 {
+    color: #fff;
+    font-family: 'Aroka-Black';
+    font-size: 70px;
+    line-height: 1.5em;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.home-page .hero .logo-lion-overlay {
+    opacity: 0.4;
+    position: absolute;
+    width: 470px;
+    left: -235px;
+    top: 220px;
+    z-index: 50;
+}
+
+.home-page .hero .video-wrap {
+    width: 90%;
+    max-width: 970px;
+    margin: 10% 5% 5% auto;
+    z-index: 50;
+}
+
+.home-page .intro-panel-video {
+    width: 100%;
+}
+
+.intro-panel-video-link {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Aroka-Black';
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+// .intro-panel-video-link::before {
+//     content: '';
+//     display: inline-block;
+//     background-image: url('images/icon-video-link-play-white.svg');
+//     background-repeat: no-repeat;
+//     background-size: contain;
+//     background-position: center center;
+//     width: 20px;
+//     height: 16px;
+//     margin: 0 10px 0 0;
+//     position: relative;
+//     top: 2px;
+// }
+
+.lang-cn .intro-panel-video-link,
+.lang-jp .intro-panel-video-link,
+.lang-kr .intro-panel-video-link {
+    font-weight: bold;
+}
+
+// .home-quote {
+//     background-color: #000;
+//     background-image: url('images/home-quote-angle-bg-gray.svg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center 2em;
+//     padding: 0 7.5% 65px;
+//     margin: 4em 0 0;
+// }
+
+.home-quote-spots-overlay {
+    position: absolute;
+    top: -20%;
+    right: 0;
+    width: 20%;
+    max-width: 300px;
+    opacity: 0.25;
+}
+
+.home-quote-wrap {
+    display: flex;
+    max-width: 950px;
+    align-items: flex-end;
+}
+
+.home-quote-screenshot {
+    flex: 0 1 45%;
+    padding: 0 5em 0 0;
+}
+
+.home-quote-copy {
+    flex: 0 1 50%;
+    padding: 0 0 4em;
+}
+
+.home-quote-screenshot img {
+    width: 85%;
+    max-width: 290px;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 15px 15px 0px 0px rgba(100, 100, 100, 1);
+}
+
+.home-quote-screenshot img.invisible {
+    transform: translateY(50px);
+}
+
+.home-quote-copy p {
+    color: #fff;
+}
+
+.home-quote-copy .quote-body {
+    font-family: 'Aroka-Black';
+    font-size: 24px;
+    line-height: 1.25em;
+    margin: auto auto 1.5em;
+}
+
+.lang-cn .home-quote-copy .quote-body,
+.lang-jp .home-quote-copy .quote-body,
+.lang-kr .home-quote-copy .quote-body {
+    font-weight: bold;
+}
+
+.open-quote-mark {
+    position: absolute;
+    left: -0.9em;
+    font-family: 'Aroka-Black';
+    font-size: 50px;
+}
+
+.quote-name {
+    color: #666;
+    font-family: 'Aroka-Black';
+    font-size: 18px;
+}
+
+.quote-attrib {
+    color: #666;
+    font-family: 'Aroka-Black';
+    font-size: 15px;
+}
+
+a.read-more {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin: 1.5em auto 0;
+    font-family: 'Aroka-Black';
+    font-size: 18px;
+}
+
+.lang-cn .read-more,
+.lang-jp .read-more,
+.lang-kr .read-more {
+    font-weight: bold;
+}
+
+// .wedge-mask-home-hero-bottom {
+//     height: 420px;
+//     z-index: 20;
+//     background-image: url('images/home-hero-spots-overlay.svg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center bottom;
+//     background-color: #000;
+// }
+
+.wedge-mask-home-hero-bottom>img {
+    display: block;
+    margin: 0;
+}
+
+.home-page .games-table {
+    padding: 0;
+    top: -50px;
+    z-index: 50;
+}
+
+.label-default {
+    display: inline;
+}
+
+.label-mobile {
+    display: none;
+}
+
+.lang-cn .std-button,
+.lang-jp .std-button,
+.lang-kr .std-button {
+    font-weight: bold;
+}
+
+.games-table h2 {
+    font-family: 'Aroka-Black';
+    font-size: 30px;
+    line-height: 1.25em;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 3em;
+    width: 80%;
+}
+
+.games-table h3 {
+    font-family: 'Aroka-Black';
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.lang-cn .games-table h3,
+.lang-jp .games-table h3,
+.lang-kr .games-table h3 {
+    font-weight: bold;
+}
+
+.games-filter-outer-wrap {
+    border-bottom: 2px solid #333;
+    margin: auto auto 100px;
+}
+
+.filter-nav {
+    text-align: left;
+}
+
+.filter-nav li {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin: 0 1em;
+}
+
+.filter-nav li a {
+    color: #fff;
+    font-family: 'Aroka-Black';
+    font-size: 18px;
+    display: inline-block;
+    padding: 1.5em 0 1em;
+    opacity: 0.3;
+    outline: none;
+}
+
+.filter-nav li.ui-state-active a,
+.filter-nav li a:hover {
+    opacity: 1;
+}
+
+.filter-nav li.ui-state-active {
+    border-bottom: 2px solid #fff;
+}
+
+.lang-cn .filter-nav li a,
+.lang-jp .filter-nav li a,
+.lang-kr .filter-nav li a {
+    font-weight: bold;
+}
+
+.games-table .wrapper {
+    max-width: 1040px;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.app-icons-wrapper {
+    margin-bottom: 1em;
+}
+
+.app-pod {
+    color: #fff;
+    width: 31%;
+    max-width: 300px;
+    margin: 1%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-award {
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 27%;
+    height: auto;
+    opacity: 1;
+    z-index: 10;
+}
+
+.app-pod p.award-caption {
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Aroka-Black';
+    margin: 1em auto;
+    opacity: 0;
+}
+
+.app-pod:hover p.award-caption {
+    opacity: 1;
+}
+
+.app-pod .app-icon img {
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity .2s ease-in-out;
+}
+
+.app-pod:hover .app-icon img {
+    opacity: 0.5;
+}
+
+.app-pod .app-overlay {
+    position: absolute;
+    top: calc(50% - 0.75em);
+    width: 100%;
+}
+
+.app-pod h6.app-title {
+    font-family: 'Aroka-Black';
+    font-size: 21px;
+    line-height: 1.25em;
+    margin: 0 auto 0.65em;
+    letter-spacing: 0.5px;
+    width: 90%;
+}
+
+.lang-cn .app-pod h6.app-title,
+.lang-jp .app-pod h6.app-title,
+.lang-kr .app-pod h6.app-title {
+    font-weight: bold;
+}
+
+.app-pod p {
+    font-family: 'Aroka-Black';
+    font-size: 16px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.app-button-wrap {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: auto;
+    opacity: 0;
+}
+
+.app-pod:hover .app-button-wrap {
+    opacity: 1;
+}
+
+.app-button-wrap a {
+    margin: 0;
+}
+
+.app-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 45%;
+}
+
+.app-button img {
+    width: auto;
+    height: 32px;
+    transition: all 0.2s ease-in-out;
+}
+
+.app-button-wrap a:hover {
+    opacity: 1;
+}
+
+.wedge-mask-hero-bottom {
+    width: 100%;
+    height: 100px;
+    display: block;
+}

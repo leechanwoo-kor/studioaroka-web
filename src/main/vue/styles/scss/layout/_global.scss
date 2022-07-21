@@ -1,0 +1,103 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 !important;
+}
+
+.body {
+    font-family: 'Aroka-Black', Avenir, Gotham, 'Proxima Nova', 'Helvetica Neue', Helvetica, sans-serif;
+    margin: auto;
+    background-color: #000;
+    color: #000;
+    font-size: 16px;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.row-red {
+    background-color: #eb3945;
+}
+
+.row-gray {
+    background-color: #f7f7f7;
+}
+
+.row-white {
+    background-color: #fff;
+}
+
+.row-content {
+    padding: 100px 0;
+}
+
+.row-content-minimal {
+    padding: 10px 0;
+}
+
+.inner-wrap {
+    width: 100%;
+    padding: 0 1.5em;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.inner-wrap-mini {
+    max-width: 720px;
+}
+
+.inner-wrap-narrow {
+    max-width: 850px;
+}
+
+.inner-wrap-medium {
+    max-width: 1050px;
+}
+
+.inner-wrap-wide {
+    max-width: 1250px;
+}
+
+a {
+    color: #00b0cd;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+
+a:hover,
+button:hover {
+    opacity: 0.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    line-height: 1.2em;
+}
+
+div,
+p,
+header,
+footer,
+img {
+    position: relative;
+}

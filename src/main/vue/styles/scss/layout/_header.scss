@@ -1,0 +1,86 @@
+/** Header and Nav */
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-pod {
+    flex: 1 1 auto;
+    margin: 0 0 2em;
+}
+
+header .inner-wrap {
+    display: flex;
+    align-items: center;
+    padding: 0 38px;
+    max-width: 1440px;
+    margin: auto;
+}
+
+.header-logo img {
+    width: 85%;
+    height: auto;
+    max-width: 120px;
+    transition: all 0.2s linear;
+}
+
+.header-logo a:hover {
+    opacity: 1;
+}
+
+.header-nav {
+    text-align: right;
+}
+
+.header-nav a {
+    font-family: 'Aroka-Black';
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: auto 1.25em;
+    letter-spacing: 1px;
+}
+
+.lang-cn .header-nav a,
+.lang-jp .header-nav a,
+.lang-kr .header-nav a {
+    font-weight: bold;
+}
+
+.header-nav li:last-child a {
+    margin-right: 0;
+}
+
+.header-nav .current-menu-item a {
+    border-bottom: 3px solid #fff;
+}
+
+.header-nav a:hover {
+    opacity: 0.9;
+}
+
+header .button-nav>a {
+    border: solid 2px #fff;
+    padding: 0.25em 1.5em;
+}
+
+header .button-nav.current-menu-item>a {
+    border: solid 2px #fff;
+    padding: 0.25em 1.5em;
+    background-color: #fff;
+    color: #000;
+}
+
+span.red {
+    color: #eb3945;
+}
+
+
+/** Responsive Nav Styling and Overrides */
+
+#topnav li {
+    display: inline;
+}
