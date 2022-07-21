@@ -125,6 +125,7 @@ module.exports = webpackConfig;
             new HtmlWebpackPlugin({
                 template: resolve('/src/main/vue/index.html'),
                 filename: 'index.html',
+                favicon: resolve('/src/main/vue/assets/favicon.png'),
                 inject: true,
                 chunks: ['aroka'],
                 minify: {
@@ -152,6 +153,7 @@ module.exports = webpackConfig;
                 new HtmlWebpackPlugin({
                     template: resolve('/src/main/vue/index.html'),
                     filename: 'index.html',
+                    favicon: resolve('/src/main/vue/assets/favicon.png'),
                     inject: true,
                     chunks: ['aroka'],
                 }),
