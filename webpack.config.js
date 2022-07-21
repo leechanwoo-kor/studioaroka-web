@@ -1,9 +1,10 @@
 // webpack.config.js
 let path = require('path')
-
-const { VueLoaderPlugin } = require('vue-loader')
+let webpack = require('webpack')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
-const { DefinePlugin } = require('webpack')
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const { VueLoaderPlugin } = require('vue-loader')
+
 
 /** 1. Initialize */
 let modeOri = process.env.NODE_ENV || 'dev'
@@ -15,12 +16,10 @@ let modeMap = {
     "hot": { name: "development", abbr: "dev" }
 }
 let mode = modeMap[modeOri.toLowerCase()] || modeMap['dev']
-let isNotProduction = process.env.NODE_ENV !== 'prod'
 console.log("BUILD MODE: ", modeOri, mode)
 
 // 1.2 webpack config
 let webpackConfig = {
-    mode: "production",
     name: "arokaConfig",
     entry: {
         aroka: resolve("/src/main/vue/entry/main.js"),
@@ -85,18 +84,96 @@ let webpackConfig = {
         ],
     },
     plugins: [
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin(
-            {
-                template: resolve('/src/main/vue/index.html'),
-            }
-        ),
+        new VueLoaderPlugin()
     ],
+    devtool: 'source-map',
 }
 
 /** 2. Configuration */
 // 2.1 Webpack config :: for default(dev)
 module.exports = webpackConfig;
+
+// 2.2 set define plugin
+(function () {
+
+    // 1) default value
+    module.exports.mode = 'development';
+
+    // 2) value by mode
+    if (mode === 'prod') {
+        module.exports.mode = 'production';
+    } else if (mode === 'hot') {
+
+    } else {
+
+    }
+
+    // 3) set to system
+    // module.exports.plugins = (module.exports.plugins || []).concat([
+    //     new webpack.DefinePlugin(define),
+    // ])
+})();
+
+// 2.3 other setting
+(function () {
+    // 1) prod
+    if (process.env.NODE_ENV === 'prod') {
+        // 1-1) set devtool
+        module.exports.devtool = false; //(none)
+        // 1-2) add extra plugin
+        module.exports.plugins = (module.exports.plugins || []).concat([
+            new HtmlWebpackPlugin({
+                template: resolve('/src/main/vue/index.html'),
+                filename: 'index.html',
+                inject: true,
+                chunks: ['aroka'],
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    removeAttributeQuotes: true,
+                }
+            }),
+        ])
+
+        module.exports.optimization = {
+            minimize: true,
+            minimizer: [
+                new TerserWebpackPlugin()
+            ],
+        }
+    }
+    // 2) hot (webpack-dev-server)
+    else {
+        if (process.env.NODE_ENV === 'hot') {
+            // 2-1) set devtool
+            module.exports.devtool = 'inline-source-map'
+            // 2-2) add extra plugin
+            module.exports.plugins = (module.exports.plugins || []).concat([
+                new HtmlWebpackPlugin({
+                    template: resolve('/src/main/vue/index.html'),
+                    filename: 'index.html',
+                    inject: true,
+                    chunks: ['aroka'],
+                }),
+            ])
+            module.exports.devServer = {
+                historyApiFallback: true,
+                port: 9090,
+                // publicPath: '/dist/',
+                proxy: {
+                    '/api/': {
+                        target: '백엔드주소',
+                        changeOrigin: true,
+                    }
+                },
+                // ...,
+            }
+        }
+    }
+})();
+
+console.log("ENV_NODE :", process.env.NODE_ENV)
+console.log("DEVTOOL :", module.exports.devtool)
 
 /** Local function */
 function resolve(dir) { return path.join(__dirname, '.', dir) }
