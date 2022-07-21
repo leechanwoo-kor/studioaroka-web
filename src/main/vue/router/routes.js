@@ -9,7 +9,17 @@ const routes = [
     {
         path: '/about',
         name: 'about',
-        component: () => import('@/views/HomeView'),
+        component: () => import('@/views/AboutView'),
+    },
+    {
+        path: '/policy',
+        name: 'policy',
+        component: () => import('@/views/PolicyView'),
+    },
+    {
+        path: '/term',
+        name: 'term',
+        component: () => import('@/views/TermView'),
     },
 ]
 

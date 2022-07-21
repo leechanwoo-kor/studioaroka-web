@@ -2,7 +2,7 @@
   <div class="body">
     <div id="main" class="lang-en">
       <Header />
-      <PrivacyPolicy />
+      <TermsOfService />
       <Footer />
     </div>
   </div>
@@ -11,14 +11,14 @@
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import PrivacyPolicy from "@/components/PrivacyPolicy.vue";
+import TermsOfService from "@/components/TermsOfService.vue";
 
 export default {
-  name: "HomeView",
+  name: "TermView",
   components: {
     Header,
     Footer,
-    PrivacyPolicy,
+    TermsOfService,
   },
 };
 </script>

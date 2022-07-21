@@ -14,7 +14,7 @@ import Footer from "@/components/Footer.vue";
 import PrivacyPolicy from "@/components/PrivacyPolicy.vue";
 
 export default {
-  name: "HomeView",
+  name: "PolicyView",
   components: {
     Header,
     Footer,
