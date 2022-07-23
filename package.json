@@ -10,6 +10,7 @@
     "dev": "cross-env NODE_ENV=hot webpack-dev-server --hot"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-router": "^4.1.2"
