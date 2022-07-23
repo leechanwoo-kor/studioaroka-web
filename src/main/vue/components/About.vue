@@ -25,7 +25,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -33,7 +36,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -41,7 +44,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -52,7 +55,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -60,7 +66,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -68,7 +74,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -79,7 +85,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -87,7 +96,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -95,7 +104,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -106,7 +115,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -114,7 +126,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -122,7 +134,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -133,7 +145,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -141,7 +156,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -149,7 +164,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -160,7 +175,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -168,7 +186,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -176,7 +194,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -187,7 +205,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -195,7 +216,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -203,7 +224,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -214,7 +235,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -222,7 +246,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -230,7 +254,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>
@@ -241,7 +265,10 @@
               <!-- Island Escape : Run Survival -->
               <div class="app-pod">
                 <div class="app-icon">
-                  <img src="@/assets/icon_512.png" alt="Game icon" />
+                  <img
+                    src="https://studioaroka.com/icon_512.png"
+                    alt="Game icon"
+                  />
                 </div>
                 <div class="app-overlay">
                   <h6 class="app-title">Island Escape : Run Survival</h6>
@@ -249,7 +276,7 @@
                     <div class="app-button">
                       <a class="btnAppStore" @click="btnAppStore">
                         <img
-                          src="@/assets/btn-app-store.svg"
+                          src="https://studioaroka.com/btn-app-store.svg"
                           alt="Download on the App Store"
                       /></a>
                     </div>
@@ -257,7 +284,7 @@
                       <a
                         href="https://play.google.com/store/apps/details?id=com.StudioAroka.IslandSOS"
                         ><img
-                          src="@/assets/btn-google-play.svg"
+                          src="https://studioaroka.com/btn-google-play.svg"
                           alt="Get it on Google Play"
                       /></a>
                     </div>

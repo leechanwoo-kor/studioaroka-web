@@ -9,6 +9,9 @@ const { VueLoaderPlugin } = require('vue-loader')
 
 const webpackPlugins = require('./webpack.plugin')
 
+// Try the environment variable, otherwise use root
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 /** 1. Initialize */
 let modeOri = process.env.NODE_ENV || 'dev'
 let modeMap = {
@@ -26,12 +29,14 @@ let webpackConfig = {
     name: "arokaConfig",
     // Where webpack looks to start building the bundle
     entry: {
-        aroka: paths.src + '/main/vue/entry/main.js',
+        aroka: path.resolve(__dirname, '../src/main/vue/entry/index.js'),
     },
     // Where webpack outputs the assets and bundles
     output: {
         path: paths.build,
-        filename: 'build.[name].[contenthash].js'
+        filename: 'js/build.[name].[contenthash].js',
+        publicPath: ASSET_PATH,
+        clean: true,
     },
     resolve: {
         extensions: ['.js', '.vue', '.html', '.json', '.scss'],
@@ -91,6 +96,10 @@ let webpackConfig = {
     plugins: [
         new CleanWebpackPlugin(),
         new VueLoaderPlugin(),
+        // This makes it possible for us to safely use env vars on our code
+        new webpack.DefinePlugin({
+            'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
+        }),
     ],
     devtool: 'source-map',
 }
@@ -130,6 +139,7 @@ module.exports = webpackConfig;
         // 1-2) add extra plugin
         module.exports.plugins = (module.exports.plugins || []).concat([
             new HtmlWebpackPlugin({
+                title: 'Studio Aroka',
                 template: paths.src + '/main/vue/index.html',
                 filename: 'index.html',
                 favicon: paths.src + '/main/vue/assets/favicon.png',
@@ -158,6 +168,7 @@ module.exports = webpackConfig;
             // 2-2) add extra plugin
             module.exports.plugins = (module.exports.plugins || []).concat([
                 new HtmlWebpackPlugin({
+                    title: 'Studio Aroka',
                     template: paths.src + '/main/vue/index.html',
                     filename: 'index.html',
                     favicon: paths.src + '/main/vue/assets/favicon.png',
@@ -166,6 +177,7 @@ module.exports = webpackConfig;
                 }),
             ])
             module.exports.devServer = {
+                static: './dist',
                 historyApiFallback: false,
                 port: 9090,
                 // publicPath: '/dist/',
