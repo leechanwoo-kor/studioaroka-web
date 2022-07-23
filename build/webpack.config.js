@@ -1,12 +1,13 @@
 // webpack.config.js
 let path = require('path')
+let paths = require('./paths')
 let webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader')
 
-const PrerenderSpaPlugin = require('prerender-spa-plugin')
-
+const webpackPlugins = require('./webpack.plugin')
 
 /** 1. Initialize */
 let modeOri = process.env.NODE_ENV || 'dev'
@@ -23,23 +24,25 @@ console.log("BUILD MODE: ", modeOri, mode)
 // 1.2 webpack config
 let webpackConfig = {
     name: "arokaConfig",
+    // Where webpack looks to start building the bundle
     entry: {
-        aroka: resolve("/src/main/vue/entry/main.js"),
+        aroka: paths.src + '/main/vue/entry/main.js',
     },
+    // Where webpack outputs the assets and bundles
     output: {
-        path: resolve("/dist"),
+        path: paths.build,
         filename: 'build.[name].[contenthash].js'
     },
     resolve: {
         extensions: ['.js', '.vue', '.html', '.json', '.scss'],
         alias: {
-            '@': resolve('src/main/vue'),
-            '@aroka': resolve('src/main/vue/aroka'),
-            '@image': resolve('src/main/vue/assets/img'),
-            '@font': resolve('src/main/vue/assets/font'),
-            '@styles': resolve('src/main/vue/styles'),
-            '@config': resolve('src/main/vue/config/mode/config.' + mode.abbr + '.js'),
-            '@const': resolve('src/main/vue/util/const.' + (mode.con || 'local') + '.js'),
+            '@': resolve('../src/main/vue'),
+            '@aroka': resolve('../src/main/vue/aroka'),
+            '@image': resolve('../src/main/vue/assets/img'),
+            '@font': resolve('../src/main/vue/assets/font'),
+            '@styles': resolve('../src/main/vue/styles'),
+            '@config': resolve('../src/main/vue/config/mode/config.' + mode.abbr + '.js'),
+            '@const': resolve('../src/main/vue/util/const.' + (mode.con || 'local') + '.js'),
         }
     },
     module: {
@@ -86,7 +89,8 @@ let webpackConfig = {
         ],
     },
     plugins: [
-        new VueLoaderPlugin()
+        new CleanWebpackPlugin(),
+        new VueLoaderPlugin(),
     ],
     devtool: 'source-map',
 }
@@ -111,6 +115,7 @@ module.exports = webpackConfig;
     }
 
     // 3) set to system
+    webpackConfig.plugins.push(...webpackPlugins)
     // module.exports.plugins = (module.exports.plugins || []).concat([
     //     new webpack.DefinePlugin(define),
     // ])
@@ -125,9 +130,9 @@ module.exports = webpackConfig;
         // 1-2) add extra plugin
         module.exports.plugins = (module.exports.plugins || []).concat([
             new HtmlWebpackPlugin({
-                template: resolve('/src/main/vue/index.html'),
+                template: paths.src + '/main/vue/index.html',
                 filename: 'index.html',
-                favicon: resolve('/src/main/vue/assets/favicon.png'),
+                favicon: paths.src + '/main/vue/assets/favicon.png',
                 inject: true,
                 chunks: ['aroka'],
                 minify: {
@@ -153,20 +158,20 @@ module.exports = webpackConfig;
             // 2-2) add extra plugin
             module.exports.plugins = (module.exports.plugins || []).concat([
                 new HtmlWebpackPlugin({
-                    template: resolve('/src/main/vue/index.html'),
+                    template: paths.src + '/main/vue/index.html',
                     filename: 'index.html',
-                    favicon: resolve('/src/main/vue/assets/favicon.png'),
+                    favicon: paths.src + '/main/vue/assets/favicon.png',
                     inject: true,
                     chunks: ['aroka'],
                 }),
             ])
             module.exports.devServer = {
-                historyApiFallback: true,
+                historyApiFallback: false,
                 port: 9090,
                 // publicPath: '/dist/',
                 proxy: {
-                    '/api/': {
-                        target: '백엔드주소',
+                    '/': {
+                        target: 'https://studioaroka.com/',
                         changeOrigin: true,
                     }
                 },

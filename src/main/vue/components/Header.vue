@@ -3,7 +3,7 @@
     <div class="inner-wrap">
       <div class="header-pod header-logo">
         <a href="/">
-          <img src="@/assets/logo.png" alt="Studio Aroka" />
+          <img src="https://studioaroka.com/logo.png" alt="Studio Aroka" />
         </a>
       </div>
       <div class="header-pod header-nav">
