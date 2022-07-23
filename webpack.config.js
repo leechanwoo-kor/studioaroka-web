@@ -5,6 +5,8 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader')
 
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
+
 
 /** 1. Initialize */
 let modeOri = process.env.NODE_ENV || 'dev'
