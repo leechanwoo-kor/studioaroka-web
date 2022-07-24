@@ -2,9 +2,11 @@
 let path = require('path')
 let paths = require('./paths')
 let webpack = require('webpack')
+
+// Plugins
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-let HtmlWebpackPlugin = require('html-webpack-plugin')
-const TerserWebpackPlugin = require("terser-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { TerserWebpackPlugin } = require("terser-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -71,15 +73,7 @@ let webpackConfig = {
                 use: [
                     'vue-style-loader',
                     'css-loader',
-                    {
-                        loader: "sass-loader",
-                        // options: {
-                        //     additionalData: `
-                        //         @import "@styles/_variables.scss";
-                        //         @import "@styles/_mixin.scss";
-                        //     `,
-                        // },
-                    },
+                    'sass-loader',
                 ]
             },
             {
@@ -111,7 +105,7 @@ let webpackConfig = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-
+        new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             title: 'Studio Aroka',
             filename: 'index.html',
@@ -138,44 +132,12 @@ module.exports = webpackConfig;
     // 1) default value
     module.exports.mode = 'development';
 
-    // 2) value by mode
+    // 2-1) prod
     if (mode === 'prod') {
         module.exports.mode = 'production';
-    } else if (mode === 'hot') {
 
-    } else {
-
-    }
-
-    // 3) set to system
-    webpackConfig.plugins.push(...webpackPlugins)
-    // module.exports.plugins = (module.exports.plugins || []).concat([
-    //     new webpack.DefinePlugin(define),
-    // ])
-})();
-
-// 2.3 other setting
-(function () {
-    // 1) prod
-    if (process.env.NODE_ENV === 'prod') {
-        // 1-1) set devtool
+        // set devtool
         module.exports.devtool = false; //(none)
-        // 1-2) add extra plugin
-        // module.exports.plugins = (module.exports.plugins || []).concat([
-        //     new HtmlWebpackPlugin({
-        //         title: 'Studio Aroka',
-        //         filename: 'index.html',
-        //         template: paths.src + '/main/vue/template.html',
-        //         favicon: paths.src + '/main/vue/assets/favicon.png',
-        //         inject: true,
-        //         // chunks: ['aroka'],
-        //         // minify: {
-        //         //     removeComments: true,
-        //         //     collapseWhitespace: true,
-        //         //     removeAttributeQuotes: true,
-        //         // }
-        //     }),
-        // ])
 
         module.exports.optimization = {
             minimize: true,
@@ -183,42 +145,33 @@ module.exports = webpackConfig;
                 new TerserWebpackPlugin()
             ],
         }
-    }
-    // 2) hot (webpack-dev-server)
-    else {
-        if (process.env.NODE_ENV === 'hot') {
-            // 2-1) set devtool
-            module.exports.devtool = 'inline-source-map'
-            // 2-2) add extra plugin
-            // module.exports.plugins = (module.exports.plugins || []).concat([
-            //     new HtmlWebpackPlugin({
-            //         title: 'Studio Aroka',
-            //         filename: 'index.html',
-            //         template: paths.src + '/main/vue/template.html',
-            //         favicon: paths.src + '/main/vue/assets/favicon.png',
-            //         inject: true,
-            //         // chunks: ['aroka'],
-            //     }),
-            // ])
-            module.exports.devServer = {
-                static: {
-                    directory: path.resolve(__dirname, 'dist')
-                },
-                port: 9090,
-                open: true,
-                hot: true,
-                compress: true,
-                historyApiFallback: false,
-                proxy: {
-                    '/': {
-                        target: 'https://studioaroka.com/',
-                        changeOrigin: true,
-                    }
-                },
-                // ...,
+    } // 2-2) hot (webpack-dev-server)
+    else if (mode === 'hot') {
+        // set devtool
+        module.exports.devtool = 'inline-source-map'
+
+        module.exports.devServer = {
+            static: {
+                directory: path.resolve(__dirname, 'dist')
+            },
+            port: 9090,
+            open: true,
+            hot: true,
+            compress: true,
+            historyApiFallback: false,
+            proxy: {
+                '/': {
+                    target: 'https://studioaroka.com/',
+                    changeOrigin: true,
+                }
             }
         }
+    } else {
+
     }
+
+    // 3) ...
+    webpackConfig.plugins.push(...webpackPlugins)
 })();
 
 console.log("ENV_NODE :", process.env.NODE_ENV)
