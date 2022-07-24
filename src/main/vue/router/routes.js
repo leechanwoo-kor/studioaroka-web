@@ -8,17 +8,17 @@ const routes = [
         // component: () => import('@/views/HomeView'),
     },
     {
-        path: '/about',
+        path: '/about/',
         name: 'about',
         component: () => import('@/views/AboutView'),
     },
     {
-        path: '/policy',
+        path: '/policy/',
         name: 'policy',
         component: () => import('@/views/PolicyView'),
     },
     {
-        path: '/term',
+        path: '/term/',
         name: 'term',
         component: () => import('@/views/TermView'),
     },
