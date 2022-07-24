@@ -7,6 +7,10 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader')
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 const webpackPlugins = require('./webpack.plugin')
 
 // Try the environment variable, otherwise use root
@@ -29,7 +33,7 @@ let webpackConfig = {
     name: "arokaConfig",
     // Where webpack looks to start building the bundle
     entry: {
-        aroka: path.resolve(__dirname, '../src/main/vue/entry/index.js'),
+        bundle: path.resolve(__dirname, '../src/main/vue/entry/index.js'),
     },
     // Where webpack outputs the assets and bundles
     output: {
@@ -37,6 +41,7 @@ let webpackConfig = {
         filename: 'js/build.[name].[contenthash].js',
         publicPath: ASSET_PATH,
         clean: true,
+        assetModuleFilename: 'asset/[name][ext]'
     },
     resolve: {
         extensions: ['.js', '.vue', '.html', '.json', '.scss'],
@@ -58,7 +63,8 @@ let webpackConfig = {
             },
             {
                 test: /\.js$/,
-                use: 'babel-loader',
+                exclude: /node_modules/,
+                use: 'babel-loader'
             },
             {
                 test: /\.s[ac]ss$/i,
@@ -67,39 +73,57 @@ let webpackConfig = {
                     'css-loader',
                     {
                         loader: "sass-loader",
-                        options: {
-                            additionalData: `
-                                @import "@styles/_variables.scss";
-                                @import "@styles/_mixin.scss";
-                            `,
-                        },
+                        // options: {
+                        //     additionalData: `
+                        //         @import "@styles/_variables.scss";
+                        //         @import "@styles/_mixin.scss";
+                        //     `,
+                        // },
                     },
                 ]
             },
             {
-                test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: { importLoaders: 1 }
+                test: /\.css$/i,
+                use: [{
+
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: ""
                     },
+                },
+                    'vue-style-loader',
+                {
+                    loader: 'css-loader',
+                    options: { importLoaders: 1 }
+                },
                     'postcss-loader'
                 ]
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg|mp4)$/,
-                use: 'file-loader?name=[name].[ext]',
+                test: /\.(ttf)$/i,
+                type: 'asset',
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|mp4)$/i,
+                type: 'asset',
             },
         ],
     },
     plugins: [
         new CleanWebpackPlugin(),
+
+        new HtmlWebpackPlugin({
+            title: 'Studio Aroka',
+            filename: 'index.html',
+            template: paths.src + '/main/vue/template.html',
+            favicon: paths.src + '/main/vue/assets/favicon.png',
+        }),
         new VueLoaderPlugin(),
         // This makes it possible for us to safely use env vars on our code
         new webpack.DefinePlugin({
             'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
         }),
+        // new BundleAnalyzerPlugin(),
     ],
     devtool: 'source-map',
 }
@@ -137,21 +161,21 @@ module.exports = webpackConfig;
         // 1-1) set devtool
         module.exports.devtool = false; //(none)
         // 1-2) add extra plugin
-        module.exports.plugins = (module.exports.plugins || []).concat([
-            new HtmlWebpackPlugin({
-                title: 'Studio Aroka',
-                template: paths.src + '/main/vue/index.html',
-                filename: 'index.html',
-                favicon: paths.src + '/main/vue/assets/favicon.png',
-                inject: true,
-                chunks: ['aroka'],
-                minify: {
-                    removeComments: true,
-                    collapseWhitespace: true,
-                    removeAttributeQuotes: true,
-                }
-            }),
-        ])
+        // module.exports.plugins = (module.exports.plugins || []).concat([
+        //     new HtmlWebpackPlugin({
+        //         title: 'Studio Aroka',
+        //         filename: 'index.html',
+        //         template: paths.src + '/main/vue/template.html',
+        //         favicon: paths.src + '/main/vue/assets/favicon.png',
+        //         inject: true,
+        //         // chunks: ['aroka'],
+        //         // minify: {
+        //         //     removeComments: true,
+        //         //     collapseWhitespace: true,
+        //         //     removeAttributeQuotes: true,
+        //         // }
+        //     }),
+        // ])
 
         module.exports.optimization = {
             minimize: true,
@@ -166,21 +190,25 @@ module.exports = webpackConfig;
             // 2-1) set devtool
             module.exports.devtool = 'inline-source-map'
             // 2-2) add extra plugin
-            module.exports.plugins = (module.exports.plugins || []).concat([
-                new HtmlWebpackPlugin({
-                    title: 'Studio Aroka',
-                    template: paths.src + '/main/vue/index.html',
-                    filename: 'index.html',
-                    favicon: paths.src + '/main/vue/assets/favicon.png',
-                    inject: true,
-                    chunks: ['aroka'],
-                }),
-            ])
+            // module.exports.plugins = (module.exports.plugins || []).concat([
+            //     new HtmlWebpackPlugin({
+            //         title: 'Studio Aroka',
+            //         filename: 'index.html',
+            //         template: paths.src + '/main/vue/template.html',
+            //         favicon: paths.src + '/main/vue/assets/favicon.png',
+            //         inject: true,
+            //         // chunks: ['aroka'],
+            //     }),
+            // ])
             module.exports.devServer = {
-                static: './dist',
-                historyApiFallback: false,
+                static: {
+                    directory: path.resolve(__dirname, 'dist')
+                },
                 port: 9090,
-                // publicPath: '/dist/',
+                open: true,
+                hot: true,
+                compress: true,
+                historyApiFallback: false,
                 proxy: {
                     '/': {
                         target: 'https://studioaroka.com/',
