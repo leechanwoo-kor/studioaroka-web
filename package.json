@@ -1,6 +1,6 @@
 {
   "name": "studioaroka-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "webpack serve --config ./build/webpack.dev.js",
