@@ -3,9 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
     {
         path: '/',
-        redirect: '/policy',
-        // name: 'home',
-        // component: () => import('@/views/HomeView'),
+        // redirect: '/policy',
+        name: 'home',
+        component: () => import('@/views/HomeView'),
     },
     {
         path: '/about/',

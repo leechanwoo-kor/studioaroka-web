@@ -6,7 +6,7 @@ module.exports = [
     new PrerenderSPAPlugin({
         staticDir: paths.build,
         routes: [
-            "/",
+            // "/",
             "/about",
             "/policy",
             "/term",
