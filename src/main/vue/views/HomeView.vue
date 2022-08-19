@@ -2,7 +2,7 @@
   <div class="body">
     <div id="main" class="lang-en">
       <Header />
-      <About />
+      <PrivacyPolicy />
       <Footer />
     </div>
   </div>
