@@ -1,5 +1,5 @@
 <template>
-  <div class="games-page lang-en">
+  <div class="home-page lang-en">
     <div class="hero minimal-height">
       <div class="inner-wrap">
         <div class="hero-intro">
