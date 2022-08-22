@@ -1,5 +1,11 @@
 /** Header and Nav */
 
+@media (max-width: 790px) {
+    .logo img {
+        display: none;
+    }
+}
+
 .logo img {
     width: 85%;
     height: auto;

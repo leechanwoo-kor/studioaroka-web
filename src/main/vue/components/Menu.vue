@@ -4,7 +4,7 @@
 
     <div class="logo">
       <a href="/">
-        <img class="logo" src="../assets/favicon.png" alt="Studio Aroka" />
+        <img src="../assets/favicon.png" alt="Studio Aroka" />
       </a>
     </div>
   </Nav>
