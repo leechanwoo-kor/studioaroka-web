@@ -1,5 +1,18 @@
 /** Header and Nav */
 
+@media (max-width: 790px) {
+    .logo img {
+        display: none;
+    }
+}
+
+.logo img {
+    width: 85%;
+    height: auto;
+    max-width: 120px;
+    transition: all 0.2s linear;
+}
+
 header {
     position: absolute;
     top: 0;
