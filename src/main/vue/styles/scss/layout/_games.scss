@@ -307,6 +307,14 @@ a.read-more {
     overflow: hidden;
 }
 
+@media screen and (max-width: 480px) {
+    .app-pod {
+        width: 100%;
+        display: block;
+        margin: 5% auto;
+    }
+}
+
 .icon-award {
     position: absolute;
     top: 0;
@@ -355,6 +363,18 @@ a.read-more {
     width: 90%;
 }
 
+@media screen and (max-width: 1024px) {
+    .app-pod h6.app-title {
+        font-size: 2.10vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .app-pod h6.app-title {
+        font-size: 21px;
+    }
+}
+
 .lang-cn .app-pod h6.app-title,
 .lang-jp .app-pod h6.app-title,
 .lang-kr .app-pod h6.app-title {
@@ -376,6 +396,12 @@ a.read-more {
     opacity: 0;
 }
 
+@media screen and (max-width: 1024px) {
+    .app-button-wrap {
+        opacity: 1;
+    }
+}
+
 .app-pod:hover .app-button-wrap {
     opacity: 1;
 }
@@ -395,6 +421,18 @@ a.read-more {
     width: auto;
     height: 32px;
     transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+    .app-button img {
+        height: 2.75vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .app-button img {
+        height: 32px;
+    }
 }
 
 .app-button-wrap a:hover {
