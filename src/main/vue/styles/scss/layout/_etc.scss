@@ -51,6 +51,13 @@ footer {
     margin-top: 100px;
 }
 
+@media (max-width: 790px) {
+    .hero-intro {
+        max-width: 450px;
+        margin-top: 0px;
+    }
+}
+
 .hero.minimal-height .hero-intro {
     max-width: 100%;
     margin-left: auto;

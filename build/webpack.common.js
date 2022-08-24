@@ -51,7 +51,7 @@ let webpackConfig = {
             '@': resolve('../src/main/vue'),
             '@aroka': resolve('../src/main/vue/aroka'),
             '@image': resolve('../src/main/vue/assets/img'),
-            '@font': resolve('../src/main/vue/assets/font'),
+            '@font': resolve('../src/main/vue/assets/fonts'),
             '@styles': resolve('../src/main/vue/styles'),
             '@config': resolve('../src/main/vue/config/mode/config.' + mode.abbr + '.js'),
             '@const': resolve('../src/main/vue/util/const.' + (mode.con || 'local') + '.js'),
@@ -95,12 +95,16 @@ let webpackConfig = {
             },
             {
                 test: /\.(ttf)$/i,
-                type: 'asset',
+                type: 'asset/resource',
             },
             {
-                test: /\.(png|jpe?g|gif|svg|mp4)$/i,
-                type: 'asset',
+                test: /\.(png|jpe?g|gif|mp4)$/i,
+                type: 'asset/resource',
             },
+            {
+                test: /\.svg/,
+                type: 'asset/inline'
+            }
         ],
     },
     plugins: [
