@@ -51,8 +51,9 @@ let webpackConfig = {
             '@': resolve('../src/main/vue'),
             '@aroka': resolve('../src/main/vue/aroka'),
             '@image': resolve('../src/main/vue/assets/img'),
-            '@font': resolve('../src/main/vue/assets/fonts'),
+            '@fonts': resolve('../src/main/vue/assets/fonts'),
             '@styles': resolve('../src/main/vue/styles'),
+            '@store': resolve('../src/main/vue/store'),
             '@config': resolve('../src/main/vue/config/mode/config.' + mode.abbr + '.js'),
             '@const': resolve('../src/main/vue/util/const.' + (mode.con || 'local') + '.js'),
         }
