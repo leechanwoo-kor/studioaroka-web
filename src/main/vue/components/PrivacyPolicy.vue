@@ -136,10 +136,10 @@
       </p>
       <h2>Person in charge of personal information protection</h2>
       <p class="p1">
-        Name: Jinhyeong Kang<br />
+        Name: ChulYong Ahn<br />
         Postiion: Team leader<br />
         Job Title: Development<br />
-        Contact: 01087653708<br />
+        Contact: 01063057595<br />
         <a href="mailto:studioaroka@gmail.com">studioaroka@gmail.com</a>
         <br />
         * You will be connected to the department in charge of personal
