@@ -148,8 +148,8 @@
       <h2>Department in charge of personal information protection</h2>
       <p>
         Department Name: Development Team<br />
-        Contact Person : Jinhyeong Kang<br />
-        Contact :01087653708<br />
+        Contact Person : ChulYong Ahn<br />
+        Contact :01063057595<br />
         <a href="mailto:studioaroka@gmail.com">studioaroka@gmail.com</a>
         <br />
         * You will be connected to the department in charge of personal
